@@ -13,7 +13,7 @@ const Header = () => {
           />
         </Link>
         <Link to='/movies/popular' className='links'>
-          <span>Popular</span>
+          <span>Popular Movies</span>
         </Link>
         <Link to='/movies/top_rated' className='links'>
           <span>Top Rated</span>

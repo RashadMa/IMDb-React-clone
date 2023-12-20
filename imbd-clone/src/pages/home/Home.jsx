@@ -4,6 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import axios from "axios";
 import "./home.css";
+import MovieList from "../../components/movieList/MovieList";
 
 const API_KEY = "4e44d9029b1270a757cddc766a1bcb63";
 const API_URL = "https://api.themoviedb.org/3/movie/popular";
@@ -61,6 +62,7 @@ const Home = () => {
                               </Link>
                         ))}
                   </Carousel>
+                  <MovieList />
             </div>
       );
 };
