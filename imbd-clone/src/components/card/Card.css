@@ -1,0 +1,89 @@
+.cards {
+  display: inline-block;
+  transition: transform 0.2s;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 0.5rem;
+  cursor: pointer;
+  width: 250px;
+  height: 350px;
+  z-index: 0;
+  border: 2px solid rgb(99, 99, 99);
+}
+
+.cardWrapper {
+  text-decoration: none;
+  color: white;
+}
+
+.cards:hover {
+  transform: scale(1.1);
+  z-index: 1000;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 15px,
+    rgba(0, 0, 0, 0.12) 0px 10px 10px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 8px 10px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.cardsImg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cardsOverlay {
+  position: absolute;
+  padding: 1rem;
+  bottom: 0;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: flex-end;
+  background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.8));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.cardsOverlay:hover {
+  opacity: 1;
+}
+
+.cardTitle {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: #fff;
+}
+
+.cardRuntime {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: #fff;
+}
+
+.cardRating {
+  float: right;
+  color: #ffd700;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    width: 100%;
+    height: 300px;
+  }
+
+  .cardsImg {
+    height: 100%;
+  }
+
+  .cardsOverlay {
+    height: 50%;
+  }
+}
