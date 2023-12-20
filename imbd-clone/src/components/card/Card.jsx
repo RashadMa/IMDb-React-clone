@@ -17,6 +17,12 @@ const Cards = ({ movie }) => {
 
       const roundedVoteAverage = movie ? parseFloat(movie.vote_average).toFixed(1) : "";
 
+      const formatDate = (dateString) => {
+            const options = { month: 'long', day: 'numeric', year: 'numeric' };
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', options);
+      };
+
       return (
             <>
                   {isLoading ? (
@@ -36,7 +42,7 @@ const Cards = ({ movie }) => {
                                     <div className="cardsOverlay">
                                           <div className="cardTitle">{movie ? movie.original_title : ""}</div>
                                           <div className="cardRuntime">
-                                                {movie ? movie.release_date : ""}
+                                                {formatDate(movie ? movie.release_date : "")}
                                                 <span className="cardRating">
                                                       {roundedVoteAverage}
                                                       <i className="fas fa-star" />

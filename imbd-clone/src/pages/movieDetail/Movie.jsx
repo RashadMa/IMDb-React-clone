@@ -25,6 +25,12 @@ const Movie = () => {
             }
       };
 
+      const formatDate = (dateString) => {
+            const options = { month: 'long', day: 'numeric', year: 'numeric' };
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', options);
+      };
+
       return (
             <div className="movieContainer">
                   <div className="movieIntro">
@@ -57,7 +63,7 @@ const Movie = () => {
                                     </div>
                                     <div className="movieRuntime">{currentMovieDetail.runtime ? `${currentMovieDetail.runtime} mins` : ""}</div>
                                     <div className="movieReleaseDate">
-                                          {currentMovieDetail.release_date ? `Release date: ${currentMovieDetail.release_date}` : ""}
+                                          {currentMovieDetail.release_date ? `Release date: ${formatDate(currentMovieDetail.release_date)}` : ""}
                                     </div>
                                     <div className="movieGenres">
                                           {currentMovieDetail.genres &&

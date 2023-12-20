@@ -11,7 +11,6 @@ const API_URL = "https://api.themoviedb.org/3/movie/popular";
 
 const Home = () => {
       const [popularMovies, setPopularMovies] = useState([]);
-
       useEffect(() => {
             const fetchPopularMovies = async () => {
                   try {
@@ -30,6 +29,12 @@ const Home = () => {
 
             fetchPopularMovies();
       }, []);
+
+      const formatDate = (dateString) => {
+            const options = { month: 'long', day: 'numeric', year: 'numeric' };
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', options);
+      };
 
       return (
             <div className="poster">
@@ -51,7 +56,7 @@ const Home = () => {
                                     <div className="poster-image-overlay">
                                           <div className="poster-image-title">{movie?.original_title || ""}</div>
                                           <div className="poster-image-runtime">
-                                                {movie?.release_date || ""}
+                                                {formatDate(movie ? movie.release_date : "")}
                                                 <span className="poster-image-rating">
                                                       {movie ? parseFloat(movie.vote_average).toFixed(1) : ""}
                                                       <i className="fas fa-star" />{" "}

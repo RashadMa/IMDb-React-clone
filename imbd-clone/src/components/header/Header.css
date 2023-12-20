@@ -21,10 +21,11 @@ a > span {
   font-size: 1.3rem;
   cursor: pointer;
   color: white;
+  transition: color 0.2s ease-in-out;
 }
 
 a > span:hover {
-  color: red;
+  color: #ffd700;
 }
 
 .logo {
@@ -34,4 +35,22 @@ a > span:hover {
 
 .user__avatar {
   font-size: 2rem;
+}
+
+.search-section {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 200px;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
 }
