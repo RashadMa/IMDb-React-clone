@@ -5,6 +5,7 @@ import Home from './pages/home/Home'
 import MovieList from './components/movieList/MovieList'
 import Movie from './pages/movieDetail/Movie'
 import ErrorPage from './pages/error/ErrorPage'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
