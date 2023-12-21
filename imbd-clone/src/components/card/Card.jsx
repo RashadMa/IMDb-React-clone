@@ -44,8 +44,8 @@ const Cards = ({ movie }) => {
                                           <div className="cardRuntime">
                                                 {formatDate(movie ? movie.release_date : "")}
                                                 <span className="cardRating">
-                                                      {roundedVoteAverage}
-                                                      <i className="fas fa-star" />
+                                                      <i className="fas fa-star ylw" />{' '}
+                                                      {roundedVoteAverage}/10
                                                 </span>
                                           </div>
                                           <div className="cardDescription">{movie ? movie.overview.slice(0, 118) + "..." : ""}</div>

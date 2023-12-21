@@ -79,7 +79,7 @@ const Header = () => {
             value={query}
             onChange={handleInputChange}
           />
-          {isLoading && <p>Loading...</p>}
+          {isLoading && <p>...</p>}
           {searchResults.length > 0 && (
             <div className="search-results">
               {searchResults.map((result) => (

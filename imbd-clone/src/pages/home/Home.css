@@ -48,9 +48,11 @@
 
 .poster-image-rating {
   margin-left: 1rem;
-  color: #ffd700;
 }
 
+.ylw {
+  color: #ffd700;
+}
 .poster-image-description {
   font-style: italic;
   font-size: 1rem;

@@ -55,8 +55,8 @@ const Movie = () => {
                                     <div className="movieName">{currentMovieDetail.original_title || ""}</div>
                                     <div className="movieTagline">{currentMovieDetail.tagline || ""}</div>
                                     <div className="movieRating">
-                                          {parseFloat(currentMovieDetail.vote_average).toFixed(1) || ""}
-                                          <i className="fas fa-star" />
+                                          <i className="fas fa-star ylw" />{" "}
+                                          {parseFloat(currentMovieDetail.vote_average).toFixed(1) || ""}/10
                                           <span className="movieVoteCount">
                                                 {currentMovieDetail.vote_count ? `(${currentMovieDetail.vote_count} votes)` : ""}
                                           </span>

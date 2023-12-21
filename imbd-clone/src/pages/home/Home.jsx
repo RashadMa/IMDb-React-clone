@@ -58,8 +58,8 @@ const Home = () => {
                                           <div className="poster-image-runtime">
                                                 {formatDate(movie ? movie.release_date : "")}
                                                 <span className="poster-image-rating">
-                                                      {movie ? parseFloat(movie.vote_average).toFixed(1) : ""}
-                                                      <i className="fas fa-star" />{" "}
+                                                      <i className="fas fa-star ylw" />{" "}
+                                                      {movie ? parseFloat(movie.vote_average).toFixed(1) : ""}/10
                                                 </span>
                                           </div>
                                           <div className="poster-image-description">{movie?.overview || ""}</div>
