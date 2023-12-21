@@ -50,12 +50,40 @@ a > span:hover {
   width: 100%;
   padding: 8px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   margin-right: 10px;
   font-size: 14px;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
+}
+
+.search-input-container {
+  width: 100%;
+}
+
+.search-results-wrapper {
+  width: 80%;
+  margin-top: 10px;
+}
+
+.search-result-card:hover {
+  background-color: #313131;
+}
+
+.search-result-card {
+  background-color: #1f1f1f;
+  padding: 10px;
+  border-bottom: 1px solid #4c4c4c;
+}
+
+.text-2 {
+  color: #c2c2c2;
+}
+
+.search-result-img {
+  height: 80px;
+  border-radius: 4px;
 }
 
 .menu-button-container {
@@ -82,7 +110,7 @@ a > span:hover {
 .menu-word {
   margin-left: 8px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   color: #fff;
 }
 
@@ -92,18 +120,9 @@ a > span:hover {
   gap: 12px;
 }
 
-.watchlist-icon {
-  margin-right: 8px;
-}
-
 .watchlist-text {
   font-size: 18px;
-  font-weight: 500;
-}
-
-.added-movies-count {
-  margin-left: 8px;
-  position: relative;
+  font-weight: 600;
 }
 
 .circle {

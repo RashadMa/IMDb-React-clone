@@ -13,10 +13,10 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route index element={<Home />}></Route>
+          {/* <Route index element={<Home />}></Route>
           <Route path='movie/:id' element={<Movie />}></Route>
           <Route path='movies/:type' element={<MovieList />}></Route>
-          <Route path='/*' element={<ErrorPage />}></Route>
+          <Route path='/*' element={<ErrorPage />}></Route> */}
         </Routes>
       </Router>
     </div>
