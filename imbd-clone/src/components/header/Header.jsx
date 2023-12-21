@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import { Container, Row, Col } from 'reactstrap'
 
+
 const Header = ({ addedMoviesCount = 20 }) => {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -77,7 +78,7 @@ const Header = ({ addedMoviesCount = 20 }) => {
 
   return (
     <div className="bgc header">
-      <Container>
+      <Container className="relative">
         <Row className="align-items-center justify-content-space-between">
           <Col lg="2" md="2" sm="2">
             <div className="d-flex">
@@ -92,7 +93,7 @@ const Header = ({ addedMoviesCount = 20 }) => {
                   </Link>
                 </div>
               </Col>
-              <Col lg="6">
+              <Col lg="6" className="d-flex justify-content-center">
                 <div className="menu-button-container">
                   <div className={`hamburger-menu ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
                     <div className="line"></div>
@@ -132,10 +133,10 @@ const Header = ({ addedMoviesCount = 20 }) => {
             <div className="watchlist-container">
               <Col lg="2">
                 <div className="watchlist-icon">
-                  <svg width="26" height="26" class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 24">
+                  <svg width="26" height="26" className="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 24">
                     <path d="M17 24a1 1 0 0 1-.64-.231L9 18.45l-7.36 5.819A1 1 0 0 1 0 23V2a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v21a1 1 0 0 1-1 1Z" />
                     {addedMoviesCount > 0 && (
-                      <text x="50%" y="50%" dy=".3em" text-anchor="middle" fontSize="10" fill="#000">
+                      <text x="50%" y="50%" dy=".3em" textAnchor="middle" fontSize="10" fill="#000">
                         {addedMoviesCount}
                       </text>
                     )}
@@ -149,10 +150,10 @@ const Header = ({ addedMoviesCount = 20 }) => {
           </Col>
         </Row>
         {searchResults.length > 0 && isInputVisible && (
-          <div className="d-flex align-items-center justify-content-center">
+          <div className="spec d-flex align-items-center justify-content-center">
             <div className="search-results-wrapper">
               {searchResults.map((result) => (
-                <div key={result.id} className="search-result-card d-flex">
+                <Link onClick={() => setQuery('')} to={`/movie/${result.id}`} key={result.id} className="search-result-card d-flex">
                   <Col lg="1">
                     <img
                       className="search-result-img"
@@ -165,7 +166,7 @@ const Header = ({ addedMoviesCount = 20 }) => {
                     <div className="text-2">{result.first_air_date && new Date(result.first_air_date).getFullYear()}</div>
                     <div className="text-2">{result.media_type}</div>
                   </Col>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

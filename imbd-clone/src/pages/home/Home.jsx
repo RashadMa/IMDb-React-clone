@@ -37,38 +37,40 @@ const Home = () => {
       };
 
       return (
-            <div className="poster">
-                  <Carousel
-                        showThumbs={false}
-                        autoPlay={true}
-                        transitionTime={300}
-                        infiniteLoop={true}
-                        showStatus={false}
-                        showArrows={true}
-                        emulateTouch={true}
-                        swipeable={true}
-                  >
-                        {popularMovies.map((movie) => (
-                              <Link key={movie.id} to={`/movie/${movie.id}`} style={{ textDecoration: "none", color: "white" }}>
-                                    <div className="poster-image">
-                                          <img src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} alt={movie?.original_title} />
-                                    </div>
-                                    <div className="poster-image-overlay">
-                                          <div className="poster-image-title">{movie?.original_title || ""}</div>
-                                          <div className="poster-image-runtime">
-                                                {formatDate(movie ? movie.release_date : "")}
-                                                <span className="poster-image-rating">
-                                                      <i className="fas fa-star ylw" />{" "}
-                                                      {movie ? parseFloat(movie.vote_average).toFixed(1) : ""}/10
-                                                </span>
+            <>
+                  <div className="poster">
+                        <Carousel
+                              showThumbs={false}
+                              autoPlay={true}
+                              transitionTime={300}
+                              infiniteLoop={true}
+                              showStatus={false}
+                              showArrows={true}
+                              emulateTouch={true}
+                              swipeable={true}
+                        >
+                              {popularMovies.map((movie) => (
+                                    <Link key={movie.id} to={`/movie/${movie.id}`} style={{ textDecoration: "none", color: "white" }}>
+                                          <div className="poster-image">
+                                                <img src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} alt={movie?.original_title} />
                                           </div>
-                                          <div className="poster-image-description">{movie?.overview || ""}</div>
-                                    </div>
-                              </Link>
-                        ))}
-                  </Carousel>
-                  <MovieList />
-            </div>
+                                          <div className="poster-image-overlay">
+                                                <div className="poster-image-title">{movie?.original_title || ""}</div>
+                                                <div className="poster-image-runtime">
+                                                      {formatDate(movie ? movie.release_date : "")}
+                                                      <span className="poster-image-rating">
+                                                            <i className="fas fa-star ylw" />{" "}
+                                                            {movie ? parseFloat(movie.vote_average).toFixed(1) : ""}/10
+                                                      </span>
+                                                </div>
+                                                <div className="poster-image-description">{movie?.overview || ""}</div>
+                                          </div>
+                                    </Link>
+                              ))}
+                        </Carousel>
+                        <MovieList />
+                  </div>
+            </>
       );
 };
 

@@ -6,20 +6,24 @@ import MovieList from './components/movieList/MovieList'
 import Movie from './pages/movieDetail/Movie'
 import ErrorPage from './pages/error/ErrorPage'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { SearchProvider } from './context/SearchContext'
+
 
 function App() {
   return (
-    <div className='App'>
-      <Router>
-        <Header />
-        <Routes>
-          {/* <Route index element={<Home />}></Route>
-          <Route path='movie/:id' element={<Movie />}></Route>
-          <Route path='movies/:type' element={<MovieList />}></Route>
-          <Route path='/*' element={<ErrorPage />}></Route> */}
-        </Routes>
-      </Router>
-    </div>
+    <SearchProvider>
+      <div className='App'>
+        <Router>
+          <Header />
+          <Routes>
+            <Route index element={<Home />}></Route>
+            <Route path='movie/:id' element={<Movie />}></Route>
+            <Route path='movies/:type' element={<MovieList />}></Route>
+            <Route path='/*' element={<ErrorPage />}></Route>
+          </Routes>
+        </Router>
+      </div>
+    </SearchProvider>
   )
 }
 
