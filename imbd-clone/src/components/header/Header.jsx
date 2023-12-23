@@ -153,7 +153,10 @@ const Header = ({ addedMoviesCount = 20 }) => {
           <div className="spec d-flex align-items-center justify-content-center">
             <div className="search-results-wrapper">
               {searchResults.map((result) => (
-                <Link onClick={() => setQuery('')} to={`/movie/${result.id}`} key={result.id} className="search-result-card d-flex">
+                <Link onClick={() => setQuery('')} to={`/${result.media_type}/${result.id}`} key={result.id} className="search-result-card d-flex">
+                  {
+                    console.log()
+                  }
                   <Col lg="1">
                     <img
                       className="search-result-img"
