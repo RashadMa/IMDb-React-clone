@@ -43,8 +43,7 @@ const HeroBanner = () => {
                 <div className="heroBannerContent">
                     <span className="title">Welcome.</span>
                     <span className="subTitle">
-                        Millions of movies, TV shows and people to discover.
-                        Explore now.
+                        IMDb: Ratings, Reviews, and Where to Watch the Best Movies
                     </span>
                     <div className="searchInput">
                         <input
