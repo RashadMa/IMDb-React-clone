@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
-
 import "./style.scss";
-
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../../hooks/useFetch";
 import Genres from "../../../components/genres/Genres";
@@ -17,14 +15,10 @@ import VideoPopup from "../../../components/videoPopup/VideoPopup";
 const DetailsBanner = ({ video, crew }) => {
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
-
     const { mediaType, id } = useParams();
     const { data, loading } = useFetch(`/${mediaType}/${id}`);
-
     const { url } = useSelector((state) => state.home);
-
     const _genres = data?.genres?.map((g) => g.id);
-
     const director = crew?.filter((f) => f.job === "Director");
     const writer = crew?.filter(
         (f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
@@ -66,11 +60,10 @@ const DetailsBanner = ({ video, crew }) => {
                                     </div>
                                     <div className="right">
                                         <div className="title">
-                                            {`${
-                                                data.name || data.title
-                                            } (${dayjs(
-                                                data?.release_date
-                                            ).format("YYYY")})`}
+                                            {`${data.name || data.title
+                                                } (${dayjs(
+                                                    data?.release_date
+                                                ).format("YYYY")})`}
                                         </div>
                                         <div className="subtitle">
                                             {data.tagline}

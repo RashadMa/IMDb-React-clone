@@ -1,13 +1,10 @@
 import axios from 'axios';
 import { createContext, useState, useContext } from 'react';
-
 export const SearchContext = createContext();
-
 export const SearchProvider = ({ children }) => {
       const [query, setQuery] = useState('');
       const [searchResults, setSearchResults] = useState([]);
       const [isLoading, setIsLoading] = useState(false);
-
       const updateSearchResults = async (newQuery) => {
             if (newQuery.trim() === '') {
                   setSearchResults([]);

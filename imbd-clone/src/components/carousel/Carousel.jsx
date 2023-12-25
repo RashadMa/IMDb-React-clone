@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -20,30 +20,6 @@ const SkeletonItem = () => (
     </div>
 );
 
-const CarouselItem = ({ item, url, navigate }) => {
-    const posterUrl = item.poster_path ? `${url.poster}${item.poster_path}` : PosterFallback;
-
-    return (
-        <div
-            key={item.id}
-            className="carouselItem"
-            onClick={() => navigate(`/${item.media_type || endpoint}/${item.id}`)}
-        >
-            <div className="posterBlock">
-                <Img src={posterUrl} />
-                <CircleRating rating={item.vote_average.toFixed(1)} />
-                <Genres data={item.genre_ids.slice(0, 2)} />
-            </div>
-            <div className="textBlock">
-                <span className="title">{item.title || item.name}</span>
-                <span className="date">
-                    {dayjs(item.release_date || item.first_air_date).format("MMM D, YYYY")}
-                </span>
-            </div>
-        </div>
-    );
-};
-
 const Carousel = ({ data, loading, endpoint, title }) => {
     const carouselContainer = useRef();
     const { url } = useSelector((state) => state.home);
@@ -59,6 +35,30 @@ const Carousel = ({ data, loading, endpoint, title }) => {
             left: scrollAmount,
             behavior: "smooth",
         });
+    };
+
+    const CarouselItem = ({ item, url, navigate }) => {
+        const posterUrl = item.poster_path ? `${url.poster}${item.poster_path}` : PosterFallback;
+
+        return (
+            <div
+                key={item.id}
+                className="carouselItem"
+                onClick={() => navigate(`/${item.media_type || endpoint}/${item.id}`)}
+            >
+                <div className="posterBlock">
+                    <Img src={posterUrl} />
+                    <CircleRating rating={item.vote_average.toFixed(1)} />
+                    <Genres data={item.genre_ids.slice(0, 2)} />
+                </div>
+                <div className="textBlock">
+                    <span className="title">{item.title || item.name}</span>
+                    <span className="date">
+                        {dayjs(item.release_date || item.first_air_date).format("MMM D, YYYY")}
+                    </span>
+                </div>
+            </div>
+        );
     };
 
     return (

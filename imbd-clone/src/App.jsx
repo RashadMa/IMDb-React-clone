@@ -35,7 +35,6 @@ function App() {
   const genresCall = async () => {
     const endPoints = ["tv", "movie"];
     const allGenres = {};
-
     const promises = endPoints.map((url) =>
       fetchDataFromApi(`/genre/${url}/list`)
     );

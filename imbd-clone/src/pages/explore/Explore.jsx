@@ -8,9 +8,7 @@ import { fetchDataFromApi } from "../../utils/api";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
-
 let filters = {};
-
 const sortbyData = [
     { value: "popularity.desc", label: "Popularity Descending" },
     { value: "popularity.asc", label: "Popularity Ascending" },
@@ -31,9 +29,7 @@ const Explore = () => {
     const [genre, setGenre] = useState(null);
     const [sortby, setSortby] = useState(null);
     const { mediaType } = useParams();
-
     const { data: genresData } = useFetch(`/genre/${mediaType}/list`);
-
     const fetchInitialData = () => {
         setLoading(true);
         fetchDataFromApi(`/discover/${mediaType}`, filters).then((res) => {
